@@ -5,6 +5,8 @@
     <!-- Set your background image for this header on the line below. -->
     {% if HEADER_COVER %}
         <header class="intro-header" style="background-image: url('{{ HEADER_COVER }}')">
+    {% elif HEADER_CLASS %}
+        <header class="intro-header {{ HEADER_CLASS }}">
     {% elif HEADER_COLOR %}
         <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
     {% else %}
@@ -41,6 +43,7 @@
             {% elif article.summary %}
                 {{ article.summary|truncate(140) }}
             {% endif %}
+<!--
             <p class="post-meta">Posted by
                 {% for author in article.authors %}
                     <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
@@ -48,9 +51,9 @@
                  on {{ article.locale_date }}
             </p>
             {% include 'comments.html' %}
+-->
         </div>
     {% endfor %}
 
     {% include "pagination.html" %}
 {% endblock content %}
-
